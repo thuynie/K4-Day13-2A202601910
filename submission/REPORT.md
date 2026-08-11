@@ -2,9 +2,9 @@
 
 ## 1. Thông tin nhóm
 
-- Tên nhóm:
-- Repository URL:
-- Commit SHA cuối:
+- Tên nhóm: Whiteboard
+- Repository URL: <https://github.com/thuynie/K4-Day13-2A202601910.git>
+- Commit hoàn tất toàn bộ checkpoint: `6d346dc`
 - Thành viên và vai trò:
   - Hoàng Thị Thuyên (`2A202601910`) — Logging & PII (Checkpoint 1)
   - Đặng Quang Trung (`2A202601510`) — Metrics, tracing, prompt versioning, dashboard, SLO và alerts (Checkpoint 2)
@@ -67,6 +67,6 @@ Với mỗi thành viên, ghi rõ nhiệm vụ và link commit/PR tương ứng.
 
 | Thành viên | Phần việc | Commit/PR | Điều đã học |
 |---|---|---|---|
-| Hoàng Thị Thuyên (`2A202601910`) | Correlation ID, structured-log enrichment, PII redaction và evidence Checkpoint 1 | `c7c169d` và commit evidence tiếp theo | Correlation ID xuyên request, contextvars, thứ tự processor và redaction trước khi ghi log |
-| Đặng Quang Trung (`2A202601510`) | Metrics, Langfuse traces, prompt versioning, dashboard, SLO và alerts | `ca970cc` | Đọc SLI/SLO, liên kết prompt version với trace và thiết kế alert theo triệu chứng người dùng |
-| Dương Tiến Dũng (`2A202602020`) | Chạy challenge chính thức, đo before/after, nối Metrics → Traces → Logs, xác định root cause và kiểm chứng recovery | `c2af2ab` và commit evidence tiếp theo | Điều tra theo ba lớp tín hiệu, chứng minh bằng correlation ID và xác nhận fix bằng số liệu recovery |
+| Hoàng Thị Thuyên (`2A202601910`) | Correlation ID, structured-log enrichment, PII redaction và evidence Checkpoint 1 | `c7c169d`, `0ccb7e3`, `de429bf`, `848f384` | Correlation ID xuyên request, contextvars, thứ tự processor và redaction trước khi ghi log |
+| Đặng Quang Trung (`2A202601510`) | Metrics, Langfuse traces, prompt versioning, dashboard, SLO và alerts | `ca970cc`, `eade781` | Đọc SLI/SLO, liên kết prompt version với trace và thiết kế alert theo triệu chứng người dùng |
+| Dương Tiến Dũng (`2A202602020`) | Chạy challenge chính thức, đo before/after, nối Metrics → Traces → Logs, xác định root cause và kiểm chứng recovery | `c2af2ab`, `6d346dc` | Điều tra theo ba lớp tín hiệu, chứng minh bằng correlation ID và xác nhận fix bằng số liệu recovery |
