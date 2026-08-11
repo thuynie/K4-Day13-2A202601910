@@ -1,0 +1,15 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Checkpoint 3 Root Cause Log</title>
+<style>body{margin:0;background:#081525;color:#e8f1ff;font:20px Consolas,monospace}.wrap{padding:42px}h1{font:700 32px Arial;color:#fff}.sub{color:#8bbcff;margin-bottom:28px}.card{background:#101f34;border:1px solid #304966;border-top:5px solid #2bd4a4;border-radius:14px;padding:28px;max-width:1200px}.row{display:grid;grid-template-columns:260px 1fr;padding:10px 0;border-bottom:1px solid #283b52}.key{color:#9ab5d5}.value{color:#fff}.bad{color:#ffbe4f}.ok{color:#2bd4a4}.conclusion{margin-top:26px;padding:20px;background:#192b43;border-left:5px solid #ffbe4f}</style>
+<body><div class="wrap"><h1>CHECKPOINT 3 · ROOT CAUSE LOG</h1><div class="sub">Dương Tiến Dũng · 2A202602020 · day13-k4-observability-v1</div><div class="card">
+<div class="row"><span class="key">timestamp</span><span class="value">2026-08-11T10:24:17.437237Z</span></div>
+<div class="row"><span class="key">event</span><span class="value ok">retrieval_completed</span></div>
+<div class="row"><span class="key">service</span><span class="value">retrieval</span></div>
+<div class="row"><span class="key">correlation_id</span><span class="value ok">req-c4bc6c03</span></div>
+<div class="row"><span class="key">trace_id</span><span class="value">482484c6191c261059318292a5129793</span></div>
+<div class="row"><span class="key">session_id</span><span class="value">k4-challenge-s05</span></div>
+<div class="row"><span class="key">feature</span><span class="value">monitoring</span></div>
+<div class="row"><span class="key">incident</span><span class="value bad">rag_slow</span></div>
+<div class="row"><span class="key">incident_active</span><span class="value bad">true</span></div>
+<div class="row"><span class="key">retrieval latency</span><span class="value bad">2500 ms &gt; 2000 ms threshold</span></div>
+<div class="conclusion"><b>Kết luận:</b> cùng correlation ID với trace; incident <b>rag_slow</b> làm retrieval chậm khoảng 2.5 giây.</div>
+</div></div></body></html>

@@ -1,0 +1,160 @@
+{
+  "student": {
+    "name": "Dương Tiến Dũng",
+    "student_id": "2A202602020"
+  },
+  "generated_at": "2026-08-11T10:24:23.821110+00:00",
+  "challenge_id": "day13-k4-observability-v1",
+  "incident": "rag_slow",
+  "affected_feature": "monitoring",
+  "latency_threshold_ms": 2000,
+  "phases": {
+    "baseline": {
+      "request_count": 5,
+      "latency_p50_ms": 806.2,
+      "latency_p95_ms": 807.0,
+      "latency_max_ms": 807.0,
+      "latency_mean_ms": 645.3,
+      "requests": [
+        {
+          "correlation_id": "req-b4bc6c01",
+          "session_id": "k4-challenge-s02",
+          "status_code": 200,
+          "latency_ms": 161.5
+        },
+        {
+          "correlation_id": "req-b4bc6c02",
+          "session_id": "k4-challenge-s01",
+          "status_code": 200,
+          "latency_ms": 645.7
+        },
+        {
+          "correlation_id": "req-b4bc6c03",
+          "session_id": "k4-challenge-s05",
+          "status_code": 200,
+          "latency_ms": 806.2
+        },
+        {
+          "correlation_id": "req-b4bc6c04",
+          "session_id": "k4-challenge-s03",
+          "status_code": 200,
+          "latency_ms": 806.3
+        },
+        {
+          "correlation_id": "req-b4bc6c05",
+          "session_id": "k4-challenge-s04",
+          "status_code": 200,
+          "latency_ms": 807.0
+        }
+      ]
+    },
+    "incident": {
+      "request_count": 5,
+      "latency_p50_ms": 13330.4,
+      "latency_p95_ms": 13332.4,
+      "latency_max_ms": 13332.4,
+      "latency_mean_ms": 10133.7,
+      "requests": [
+        {
+          "correlation_id": "req-c4bc6c01",
+          "session_id": "k4-challenge-s02",
+          "status_code": 200,
+          "latency_ms": 2673.3
+        },
+        {
+          "correlation_id": "req-c4bc6c02",
+          "session_id": "k4-challenge-s01",
+          "status_code": 200,
+          "latency_ms": 8001.6
+        },
+        {
+          "correlation_id": "req-c4bc6c03",
+          "session_id": "k4-challenge-s05",
+          "status_code": 200,
+          "latency_ms": 13332.4
+        },
+        {
+          "correlation_id": "req-c4bc6c04",
+          "session_id": "k4-challenge-s03",
+          "status_code": 200,
+          "latency_ms": 13331.0
+        },
+        {
+          "correlation_id": "req-c4bc6c05",
+          "session_id": "k4-challenge-s04",
+          "status_code": 200,
+          "latency_ms": 13330.4
+        }
+      ]
+    },
+    "recovery": {
+      "request_count": 5,
+      "latency_p50_ms": 666.5,
+      "latency_p95_ms": 830.7,
+      "latency_max_ms": 830.7,
+      "latency_mean_ms": 632.5,
+      "requests": [
+        {
+          "correlation_id": "req-f4bc6c01",
+          "session_id": "k4-challenge-s02",
+          "status_code": 200,
+          "latency_ms": 169.6
+        },
+        {
+          "correlation_id": "req-f4bc6c02",
+          "session_id": "k4-challenge-s01",
+          "status_code": 200,
+          "latency_ms": 666.5
+        },
+        {
+          "correlation_id": "req-f4bc6c03",
+          "session_id": "k4-challenge-s05",
+          "status_code": 200,
+          "latency_ms": 665.1
+        },
+        {
+          "correlation_id": "req-f4bc6c04",
+          "session_id": "k4-challenge-s03",
+          "status_code": 200,
+          "latency_ms": 830.4
+        },
+        {
+          "correlation_id": "req-f4bc6c05",
+          "session_id": "k4-challenge-s04",
+          "status_code": 200,
+          "latency_ms": 830.7
+        }
+      ]
+    }
+  },
+  "threshold_breached": true,
+  "recovery_confirmed": true,
+  "representative_correlation_id": "req-c4bc6c03",
+  "root_cause_log_sample": {
+    "service": "retrieval",
+    "latency_ms": 2500,
+    "payload": {
+      "incident": "rag_slow",
+      "incident_active": true,
+      "query_preview": "Describe how to prove a slow span is the root cause.",
+      "result_count": 1
+    },
+    "event": "retrieval_completed",
+    "model": "claude-sonnet-4-5",
+    "user_id_hash": "0c04335fe098",
+    "env": "dev",
+    "correlation_id": "req-c4bc6c03",
+    "session_id": "k4-challenge-s05",
+    "feature": "monitoring",
+    "level": "info",
+    "ts": "2026-08-11T10:24:17.437237Z"
+  },
+  "incident_log_count": 10,
+  "final_incident_state": {
+    "rag_slow": false,
+    "tool_fail": false,
+    "cost_spike": false
+  },
+  "representative_trace_id": "482484c6191c261059318292a5129793",
+  "representative_trace_latency_seconds": 2.665
+}

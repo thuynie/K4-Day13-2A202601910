@@ -1,0 +1,14 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Checkpoint 3 Trace Evidence</title>
+<style>body{margin:0;background:#f5f7fb;color:#172033;font:18px Arial}.wrap{padding:34px 46px}h1{margin:0 0 8px;font-size:32px}.meta{color:#52647d;margin-bottom:25px}.layout{display:grid;grid-template-columns:420px 1fr;gap:22px}.card{background:#fff;border:1px solid #d9e1ec;border-radius:12px;padding:24px;box-shadow:0 4px 16px #23334d12}.tree{font:20px Consolas,monospace}.node{padding:14px;border-left:4px solid #7b61ff;margin:8px}.child{margin-left:38px}.slow{border-color:#ed8a23;background:#fff8ed}.fast{border-color:#2bbf91;background:#effcf8}.pill{display:inline-block;background:#172033;color:white;border-radius:8px;padding:6px 10px;margin:4px}.grid{display:grid;grid-template-columns:210px 1fr}.grid div{padding:12px;border-bottom:1px solid #e4e9f0}.key{color:#61728a}.value{font-family:Consolas,monospace}.bar{height:22px;border-radius:6px;margin-top:8px}.orange{width:94%;background:#ed8a23}.green{width:6%;background:#2bbf91}.source{margin-top:22px;color:#52647d;font-size:15px}</style>
+<body><div class="wrap"><h1>Langfuse Trace · Slow Retrieval</h1><div class="meta">Dữ liệu xác minh trực tiếp qua Langfuse API · 11/08/2026 17:24:14 (UTC+7)</div><div class="layout">
+<div class="card tree"><div class="node">run <b>2.665s</b></div><div class="node child slow">retrieve <b>2.512s</b><div class="bar orange"></div></div><div class="node child fast">generate <b>0.151s</b><div class="bar green"></div></div></div>
+<div class="card"><div><span class="pill">Incident: rag_slow</span><span class="pill">Threshold: 2.000s</span></div><div class="grid">
+<div class="key">Trace ID</div><div class="value">482484c6191c261059318292a5129793</div>
+<div class="key">Correlation ID</div><div class="value">req-c4bc6c03</div>
+<div class="key">Session ID</div><div class="value">k4-challenge-s05</div>
+<div class="key">Root observation</div><div class="value">97f1a27e717edfdc · GENERATION</div>
+<div class="key">Retrieve span</div><div class="value">aadcb1711b4f036c · 2.512s</div>
+<div class="key">Generate span</div><div class="value">571748f536538b74 · 0.151s</div>
+<div class="key">Root cause</div><div class="value"><b>retrieve chiếm 94.3% tổng trace</b></div>
+</div><div class="source">Nguồn: Langfuse Cloud API, project day13. Trace, observation ID và latency có thể đối chiếu trực tiếp.</div></div>
+</div></div></body></html>

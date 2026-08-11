@@ -8,6 +8,7 @@
 - Thành viên và vai trò:
   - Hoàng Thị Thuyên (`2A202601910`) — Logging & PII (Checkpoint 1)
   - Đặng Quang Trung (`2A202601510`) — Metrics, tracing, prompt versioning, dashboard, SLO và alerts (Checkpoint 2)
+  - Dương Tiến Dũng (`2A202602020`) — Điều tra incident, khắc phục, báo cáo và demo (Checkpoint 3)
 
 ## 2. Kết quả kỹ thuật
 
@@ -51,13 +52,14 @@
 
 ## 6. Điều tra challenge
 
-- Challenge ID:
-- Triệu chứng từ metrics:
-- Trace ID liên quan:
-- Log line/correlation ID liên quan:
-- Root cause:
-- Fix action:
-- Preventive measure:
+- Challenge ID: `day13-k4-observability-v1`; incident chính thức `rag_slow`; feature ảnh hưởng `monitoring`; ngưỡng latency 2000 ms.
+- Triệu chứng từ metrics: so sánh P95 của ba batch baseline → incident → recovery trong [`evidence/checkpoint-3-investigation.txt`](evidence/checkpoint-3-investigation.txt) và dữ liệu máy đọc tại [`evidence/checkpoint-3-investigation.json`](evidence/checkpoint-3-investigation.json). P95 incident phải vượt 2000 ms, còn recovery phải trở lại dưới ngưỡng.
+- Trace ID liên quan: `482484c6191c261059318292a5129793`, correlation ID `req-c4bc6c03`, session `k4-challenge-s05`; waterfall cho thấy span `retrieve` mất 2.512 giây, trong khi `generate` mất 0.151 giây — [`evidence/checkpoint-3-trace-slow-retrieval.png`](evidence/checkpoint-3-trace-slow-retrieval.png), nguồn đối chiếu [`evidence/checkpoint-3-trace-slow-retrieval.html`](evidence/checkpoint-3-trace-slow-retrieval.html).
+- Log line/correlation ID liên quan: event `retrieval_completed` có cùng correlation ID với trace, `service=retrieval`, `payload.incident=rag_slow`, `payload.incident_active=true` và `latency_ms` khoảng 2500 ms — [`evidence/checkpoint-3-root-cause-log.png`](evidence/checkpoint-3-root-cause-log.png).
+- Root cause: cờ incident `rag_slow` làm dependency retrieval chờ 2.5 giây; metrics xác định triệu chứng, trace khoanh vùng span `retrieve`, log xác nhận incident và thời gian dependency.
+- Fix action: tắt `rag_slow`, chạy lại đúng input chính thức và xác nhận P95 recovery dưới 2000 ms; trạng thái cuối của mọi incident phải là `false`.
+- Preventive measure: cảnh báo P95 theo SLO, đặt timeout/circuit breaker cho retrieval, dùng fallback khi dependency chậm và luôn truyền correlation ID từ API qua trace/log.
+- Evidence đầy đủ: kết quả before/incident/after [`evidence/checkpoint-3-investigation.png`](evidence/checkpoint-3-investigation.png), dashboard khi incident [`evidence/checkpoint-3-dashboard-incident.png`](evidence/checkpoint-3-dashboard-incident.png), trace retrieval chậm nói trên và root-cause log [`evidence/checkpoint-3-root-cause-log.png`](evidence/checkpoint-3-root-cause-log.png) (nguồn HTML có thể kiểm tra tại [`evidence/checkpoint-3-root-cause-log.html`](evidence/checkpoint-3-root-cause-log.html)).
 
 ## 7. Đóng góp cá nhân
 
@@ -67,3 +69,4 @@ Với mỗi thành viên, ghi rõ nhiệm vụ và link commit/PR tương ứng.
 |---|---|---|---|
 | Hoàng Thị Thuyên (`2A202601910`) | Correlation ID, structured-log enrichment, PII redaction và evidence Checkpoint 1 | `c7c169d` và commit evidence tiếp theo | Correlation ID xuyên request, contextvars, thứ tự processor và redaction trước khi ghi log |
 | Đặng Quang Trung (`2A202601510`) | Metrics, Langfuse traces, prompt versioning, dashboard, SLO và alerts | `ca970cc` | Đọc SLI/SLO, liên kết prompt version với trace và thiết kế alert theo triệu chứng người dùng |
+| Dương Tiến Dũng (`2A202602020`) | Chạy challenge chính thức, đo before/after, nối Metrics → Traces → Logs, xác định root cause và kiểm chứng recovery | `c2af2ab` và commit evidence tiếp theo | Điều tra theo ba lớp tín hiệu, chứng minh bằng correlation ID và xác nhận fix bằng số liệu recovery |
