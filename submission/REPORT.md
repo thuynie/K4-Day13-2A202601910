@@ -106,8 +106,10 @@ Với mỗi thành viên, ghi rõ nhiệm vụ và link commit/PR tương ứng.
 | `rollback version 3.png` | `production` ở version 3 (trước khi đổi) |
 | `rollback version2.png` | `production` chuyển sang version 2 |
 | `rollback version1.png` | `production` rollback về version 1 (sau) |
+| `validator.png` | Output `validate_logs.py` (100/100) và `validate_dashboard.py` (6/6 panel) |
 
 ## Việc còn thiếu
 
+- [ ] Ảnh hai trace prompt (mở trace `ca392991d77d87659d2d50a140eac11c` và `daff2d4d35c23a24bf74154c698ca798`, tab Metadata thấy `prompt_version` 1 và 2) — đang chờ có seat trống trong org `Hoàng's Organization`
 - [ ] Mục 6 sau khi Lab Coach release `config/challenge.json`
 - [ ] Bổ sung các thành viên còn lại vào bảng mục 7 (nếu nhóm có nhiều hơn một người)

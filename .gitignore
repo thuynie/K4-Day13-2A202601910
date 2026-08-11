@@ -5,5 +5,7 @@ __pycache__/
 data/logs.jsonl
 data/audit.jsonl
 .env
+.env.*
+!.env.example
 .pytest_cache/
 .antigravity/
