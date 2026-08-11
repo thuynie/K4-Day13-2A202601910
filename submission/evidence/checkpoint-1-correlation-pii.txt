@@ -1,0 +1,25 @@
+Checkpoint 1 - Correlation ID, enrichment and PII evidence
+Owner: Hoàng Thị Thuyên (2A202601910)
+Checked: 2026-08-11 (Asia/Bangkok)
+
+Correlation/enrichment sample from data/logs.jsonl:
+{
+  "ts": "2026-08-11T08:28:59.473613Z",
+  "level": "info",
+  "service": "api",
+  "event": "request_received",
+  "correlation_id": "req-8dbdb480",
+  "user_id_hash": "2055254ee30a",
+  "session_id": "s01",
+  "feature": "qa",
+  "model": "claude-sonnet-4-5",
+  "env": "dev"
+}
+
+Sanitized message previews:
+- req-8dbdb480: What is your refund policy? My email is [REDACTED_EMAIL]
+- req-d433ced6: Here is my phone [REDACTED_PHONE_VN], what should be logged?
+- req-c42350b4: What is the policy for PII and credit card [REDACTED_CREDIT_CARD]?
+
+The raw test email, Vietnamese phone number and credit-card number do not occur
+in the generated JSONL log. validate_logs.py reports zero potential PII leaks.

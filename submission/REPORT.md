@@ -26,9 +26,9 @@
 
 ## 3. Logging và tracing
 
-- Evidence correlation ID: [`evidence/checkpoint-1-correlation-pii.txt`](evidence/checkpoint-1-correlation-pii.txt)
-- Evidence PII redaction: [`evidence/checkpoint-1-correlation-pii.txt`](evidence/checkpoint-1-correlation-pii.txt)
-- Kết quả validator 100/100: [`evidence/checkpoint-1-validation.txt`](evidence/checkpoint-1-validation.txt)
+- Evidence correlation ID: [`evidence/checkpoint-1-correlation-id.png`](evidence/checkpoint-1-correlation-id.png) và [`evidence/checkpoint-1-correlation-pii.txt`](evidence/checkpoint-1-correlation-pii.txt)
+- Evidence PII redaction: [`evidence/checkpoint-1-pii-redaction.png`](evidence/checkpoint-1-pii-redaction.png) và [`evidence/checkpoint-1-correlation-pii.txt`](evidence/checkpoint-1-correlation-pii.txt)
+- Kết quả validator 100/100: [`evidence/checkpoint-1-validator.png`](evidence/checkpoint-1-validator.png) và [`evidence/checkpoint-1-validation.txt`](evidence/checkpoint-1-validation.txt)
 - Evidence trace waterfall:
 - Giải thích một span đáng chú ý:
 
