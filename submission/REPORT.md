@@ -6,12 +6,13 @@
 - Repository URL:
 - Commit SHA cuối:
 - Thành viên và vai trò:
+  - Hoàng Thị Thuyên (`2A202601910`) — Logging & PII (Checkpoint 1)
 
 ## 2. Kết quả kỹ thuật
 
-- Điểm `validate_logs.py`: 30/100 (baseline Checkpoint 0, trước khi triển khai Logging & PII)
+- Điểm `validate_logs.py`: 100/100 (Checkpoint 1; baseline Checkpoint 0 là 30/100)
 - Tổng số traces: 9 trace có tag `lab` đã xác minh trên Langfuse sau setup (sẽ bổ sung/chuẩn hóa evidence ở Checkpoint 2)
-- Số PII leak còn lại: 0 trong baseline
+- Số PII leak còn lại: 0
 - Link/đường dẫn dashboard:
 
 ### Evidence Checkpoint 0
@@ -25,8 +26,9 @@
 
 ## 3. Logging và tracing
 
-- Evidence correlation ID:
-- Evidence PII redaction:
+- Evidence correlation ID: [`evidence/checkpoint-1-correlation-pii.txt`](evidence/checkpoint-1-correlation-pii.txt)
+- Evidence PII redaction: [`evidence/checkpoint-1-correlation-pii.txt`](evidence/checkpoint-1-correlation-pii.txt)
+- Kết quả validator 100/100: [`evidence/checkpoint-1-validation.txt`](evidence/checkpoint-1-validation.txt)
 - Evidence trace waterfall:
 - Giải thích một span đáng chú ý:
 
@@ -61,4 +63,4 @@ Với mỗi thành viên, ghi rõ nhiệm vụ và link commit/PR tương ứng.
 
 | Thành viên | Phần việc | Commit/PR | Điều đã học |
 |---|---|---|---|
-| | | | |
+| Hoàng Thị Thuyên (`2A202601910`) | Correlation ID, structured-log enrichment, PII redaction và evidence Checkpoint 1 | `c7c169d` và commit evidence tiếp theo | Correlation ID xuyên request, contextvars, thứ tự processor và redaction trước khi ghi log |
