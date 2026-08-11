@@ -49,11 +49,10 @@ def test_agent_links_prompt_version_to_trace_and_generation(monkeypatch) -> None
 
     trace_metadata = client.trace_updates[-1]["metadata"]
     generation_update = client.generation_updates[-1]
-    assert trace_metadata == {
-        "prompt_name": "day13-chat",
-        "prompt_label": "production",
-        "prompt_version": "3",
-        "prompt_source": "langfuse",
-    }
+    assert trace_metadata["prompt_name"] == "day13-chat"
+    assert trace_metadata["prompt_label"] == "production"
+    assert trace_metadata["prompt_version"] == "3"
+    assert trace_metadata["prompt_source"] == "langfuse"
+    assert "correlation_id" in trace_metadata
     assert generation_update["prompt"] is client.prompt
     assert generation_update["metadata"]["prompt_version"] == "3"

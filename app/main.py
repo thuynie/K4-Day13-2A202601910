@@ -3,10 +3,11 @@ from __future__ import annotations
 import os
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from structlog.contextvars import bind_contextvars
 
 from .agent import LabAgent
+from .dashboard import render_dashboard_html
 from .incidents import disable, enable, status
 from .logging_config import configure_logging, get_logger
 from .metrics import record_error, snapshot
@@ -32,6 +33,16 @@ async def startup() -> None:
     )
 
 
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception) -> JSONResponse:
+    correlation_id = getattr(request.state, "correlation_id", "unknown")
+    return JSONResponse(
+        status_code=500,
+        content={"detail": type(exc).__name__},
+        headers={"x-request-id": correlation_id},
+    )
+
+
 @app.get("/health")
 async def health() -> dict:
     return {"ok": True, "tracing_enabled": tracing_enabled(), "incidents": status()}
@@ -40,6 +51,11 @@ async def health() -> dict:
 @app.get("/metrics")
 async def metrics() -> dict:
     return snapshot()
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard() -> HTMLResponse:
+    return HTMLResponse(render_dashboard_html())
 
 
 @app.post("/chat", response_model=ChatResponse)
