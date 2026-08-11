@@ -9,10 +9,19 @@
 
 ## 2. Kết quả kỹ thuật
 
-- Điểm `validate_logs.py`:
-- Tổng số traces:
-- Số PII leak còn lại:
+- Điểm `validate_logs.py`: 30/100 (baseline Checkpoint 0, trước khi triển khai Logging & PII)
+- Tổng số traces: 9 trace có tag `lab` đã xác minh trên Langfuse sau setup (sẽ bổ sung/chuẩn hóa evidence ở Checkpoint 2)
+- Số PII leak còn lại: 0 trong baseline
 - Link/đường dẫn dashboard:
+
+### Evidence Checkpoint 0
+
+- Health (`ok=true`, tracing bật): [`evidence/checkpoint-0-health.png`](evidence/checkpoint-0-health.png)
+- Swagger API docs và danh sách endpoint: [`evidence/checkpoint-0-api-docs.png`](evidence/checkpoint-0-api-docs.png)
+- Metrics baseline trước load test: [`evidence/checkpoint-0-metrics-baseline.png`](evidence/checkpoint-0-metrics-baseline.png)
+- Chi tiết môi trường dạng text: [`evidence/checkpoint-0-health.txt`](evidence/checkpoint-0-health.txt)
+- Load test và baseline log: [`evidence/checkpoint-0-baseline.txt`](evidence/checkpoint-0-baseline.txt)
+- Commit tại thời điểm kiểm tra: `5ba64725aaf0b5b4d51c28772973373d98d0f149`
 
 ## 3. Logging và tracing
 

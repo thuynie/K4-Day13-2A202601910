@@ -1,0 +1,33 @@
+Checkpoint 0 - Environment and health evidence
+Checked: 2026-08-11 (Asia/Bangkok)
+
+Environment
+- Virtual environment: .venv
+- Python: 3.11.9 (lab requires Python 3.11+)
+- pip: 26.2.1
+- Dependency check: No broken requirements found.
+- Environment file: .env exists and is excluded by .gitignore.
+
+Command
+  uvicorn app.main:app --host 127.0.0.1 --port 8000 --env-file .env
+
+GET http://127.0.0.1:8000/health
+HTTP status: 200
+Response:
+{
+  "ok": true,
+  "tracing_enabled": true,
+  "incidents": {
+    "rag_slow": false,
+    "tool_fail": false,
+    "cost_spike": false
+  }
+}
+
+Langfuse verification
+- SDK authentication check: true
+- Tracing enabled: true
+- Langfuse lab traces visible after setup: 9
+
+No key or secret is included in this evidence. Credentials only exist in the
+git-ignored .env file.
