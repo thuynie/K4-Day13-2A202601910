@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="30">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 13 AI Observability</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, Segoe UI, sans-serif; }
+    body { margin: 0; background: #07111f; color: #e7eef9; }
+    header { padding: 28px 38px; border-bottom: 1px solid #26364d; background: #0b1729; }
+    h1 { margin: 0 0 8px; font-size: 30px; }
+    .meta { color: #9fb0c8; display: flex; gap: 24px; flex-wrap: wrap; }
+    main { display: grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap: 18px; padding: 28px 38px; }
+    .panel { min-height: 190px; padding: 22px; border-radius: 14px; border: 1px solid #2a3b55; background: #101e32; box-shadow: 0 8px 24px #0004; }
+    .panel.ok { border-top: 5px solid #26c281; } .panel.warn { border-top: 5px solid #f4b942; } .panel.bad { border-top: 5px solid #ef6262; }
+    .panel-title { color: #b9c8db; font-weight: 650; font-size: 17px; }
+    .value { font-size: 35px; font-weight: 750; margin: 25px 0 12px; }
+    .detail { color: #a8b8cc; min-height: 38px; }
+    .threshold { margin-top: 18px; padding-top: 13px; border-top: 1px dashed #41526b; color: #70d6a7; font-family: Consolas, monospace; }
+    footer { padding: 4px 38px 30px; color: #7f91aa; }
+    @media (max-width: 1000px) { main { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Day 13 AI Observability</h1>
+    <div class="meta"><span>Source: data/logs.jsonl</span><span>Time range: Last 60 minutes</span><span>Auto refresh: 30s</span><span>Generated: 2026-08-11 09:17:40 UTC</span></div>
+  </header>
+  <main>
+    <section class="panel ok">
+      <div class="panel-title">Latency percentiles</div>
+      <div class="value">P95 1372 ms</div>
+      <div class="detail">P50 150 ms · P99 1372 ms</div>
+      <div class="threshold">SLO: p95 ≤ 3000 ms</div>
+    </section>
+    <section class="panel warn">
+      <div class="panel-title">Request traffic</div>
+      <div class="value">20 requests</div>
+      <div class="detail">0.85 requests/minute</div>
+      <div class="threshold">SLO: rate_per_minute ≥ 1 requests_per_minute</div>
+    </section>
+    <section class="panel ok">
+      <div class="panel-title">Error rate and breakdown</div>
+      <div class="value">0.00%</div>
+      <div class="detail">No errors</div>
+      <div class="threshold">SLO: error_rate_pct ≤ 2 percent</div>
+    </section>
+    <section class="panel ok">
+      <div class="panel-title">Cost over time</div>
+      <div class="value">$0.039255</div>
+      <div class="detail">20 successful responses</div>
+      <div class="threshold">SLO: total ≤ 2.5 usd</div>
+    </section>
+    <section class="panel ok">
+      <div class="panel-title">Input and output tokens</div>
+      <div class="value">3,209 tokens</div>
+      <div class="detail">Input 740 · Output 2,469</div>
+      <div class="threshold">SLO: sum_by_field ≤ 50000 tokens</div>
+    </section>
+    <section class="panel ok">
+      <div class="panel-title">Quality proxy</div>
+      <div class="value">0.84</div>
+      <div class="detail">Mean heuristic quality score</div>
+      <div class="threshold">SLO: mean ≥ 0.75 score_0_to_1</div>
+    </section></main>
+  <footer>Owner: Đặng Quang Trung · 2A202601510 · Metrics → Traces → Logs</footer>
+</body>
+</html>

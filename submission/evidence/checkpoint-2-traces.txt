@@ -1,0 +1,22 @@
+Checkpoint 2 - Langfuse traces and prompt metadata
+Owner: Đặng Quang Trung (2A202601510)
+Checked: 2026-08-11 (Asia/Bangkok)
+
+Prompt: day13-chat
+
+Baseline label, prompt version 1, source langfuse:
+- e35f2a6c1fd4aee4b044c66cef836832
+- 0bf682e5c52564c51905c11ff8e915b9
+- f526b40c0af55fe5ca9a1bdb1801b364
+- 0ee6816a5771a96bef2e1c0c2a43f648
+- b01ec2b51e5bde8d5398d46c14e595db
+
+Candidate label, prompt version 2, source langfuse:
+- 90e824d078665eb511901b4bb6648739
+- 760f222fa0caba3f1967bcc4e115f696
+- c74926e653683629449af23d240cb198
+- 704d1dfecedc9676b6efe8fc16b6f41a
+- 461353c368e45cfe93ae90fe56a858f3
+
+Verified Checkpoint 2 traces: 10
+Each trace contains prompt_name, prompt_label, prompt_version and prompt_source.
