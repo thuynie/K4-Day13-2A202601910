@@ -2,10 +2,11 @@
 
 ## 1. Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: Whiteboard
 - Repository URL: https://github.com/thuynie/K4-Day13-2A202601910
-- Commit SHA cuối: `881493ea92bdb619024a8a8bf350928bc46a4cad` (nhánh `fix/observability-logging`)
-- Thành viên và vai trò:
+- Pull Request: [VinUni-AI20k/Day13-K4-Observability#8](https://github.com/VinUni-AI20k/Day13-K4-Observability/pull/8) (từ `thuynie:fix/observability-logging` vào `VinUni-AI20k:main`)
+- Commit SHA cuối: `34688bb` (nhánh `fix/observability-logging`) — xem đầy đủ 3 commit tại PR #8
+- Thành viên và vai trò: Đặng Quang Trung (@sharkdownwindows) — phụ trách CP2 (cấu hình Langfuse, thiết lập SLO/Alert Rules, viết tài liệu Alert Runbook)
 
 ## 2. Kết quả kỹ thuật
 
@@ -91,7 +92,7 @@ Với mỗi thành viên, ghi rõ nhiệm vụ và link commit/PR tương ứng.
 
 | Thành viên | Phần việc | Commit/PR | Điều đã học |
 |---|---|---|---|
-| | | | |
+| Đặng Quang Trung (@sharkdownwindows) | Phụ trách CP2: cấu hình Langfuse (tracing, prompt versioning, rollback label), thiết lập SLO trong `config/slo.yaml`, viết 3 alert rules và Alert Runbook trong `docs/alerts.md`. Ngoài ra hoàn thiện CP1 (correlation ID, log enrichment, PII scrubbing) và dựng dashboard 6 panel. | [PR #8](https://github.com/VinUni-AI20k/Day13-K4-Observability/pull/8) — 3 commits: `0916411`, `881493e`, `34688bb` | **1. Rollback không có hiệu lực tức thì.** Sau khi đổi label `production` về version 1 trên UI, load test đầu tiên vẫn chạy version 2 do prompt cache TTL 60s. Phải đợi cache hết hạn mới thấy version 1. Bài học: khi rollback thật, không được kết luận "đã xong" chỉ vì UI đã đổi — phải kiểm chứng bằng dữ liệu ở đầu ra.<br>**2. Alert phải dựa trên triệu chứng người dùng, không dựa vào tên implementation.** Ba alert đều đặt theo SLI (`latency_p95`, `error_rate_pct`, `daily_cost_usd`) thay vì theo tên incident nội bộ (`rag_slow`, `tool_fail`), nên vẫn hoạt động kể cả khi nguyên nhân kỹ thuật thay đổi.<br>**3. Thứ tự processor trong structlog quyết định PII có bị lộ hay không.** `scrub_event` phải nằm sau `TimeStamper` nhưng trước `JsonlFileProcessor`; đặt sai thứ tự thì log đã ghi xuống file trước khi kịp che.<br>**4. API key hợp lệ không đồng nghĩa tài khoản có quyền xem.** Traces gửi thành công vào project nhưng UI không hiện vì tài khoản chưa thuộc tổ chức đó, và hệ thống không báo lỗi nào. |
 
 ---
 
@@ -108,5 +109,5 @@ Với mỗi thành viên, ghi rõ nhiệm vụ và link commit/PR tương ứng.
 
 ## Việc còn thiếu
 
-- [ ] Điền tên nhóm, thành viên và bảng đóng góp cá nhân (mục 1 và 7)
 - [ ] Mục 6 sau khi Lab Coach release `config/challenge.json`
+- [ ] Bổ sung các thành viên còn lại vào bảng mục 7 (nếu nhóm có nhiều hơn một người)
